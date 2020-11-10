@@ -1,0 +1,18 @@
+.CreateSession {
+  display: flex;
+  flex-direction: column;
+}
+
+.CreateSession__input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-item {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+}
