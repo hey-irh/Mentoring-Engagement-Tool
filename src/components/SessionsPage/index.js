@@ -18,19 +18,18 @@ function SessionsPage() {
   // HOW DO WE PATCH
 
   function handleClick(newNote, id) {
-    // WIP need to finish tomorrow 
+    // WIP need to finish tomorrow
     // need to find and set index
-    let toAdd = [...sessions[index].notes, newNote]
-   
-    const fetchRequest = useCallback(() => {
+    let toAdd = [...sessions[index].notes, newNote];
 
+    const fetchRequest = useCallback(async () => {
       await fetch(`http://localhost:5000/sessions/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({id, toAdd}),
-      }
-
-  , []);
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id, toAdd }),
+      });
+    }, []);
+  }
 
   return (
     <Fragment>
