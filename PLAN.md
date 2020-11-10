@@ -17,7 +17,7 @@ FOLDER
                     use useEffect with a fetch request to "/sessions" with empty dependency array
 
                 handleclick(id, newNote) {
-                    session[id] = [...notes, newNote]
+                    sessions[id] = [...notes, newNote]
                 } (send entire object (or smaller object) to the server to PATCH at /sessions/:id)
 
                 render
