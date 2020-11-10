@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from "react";
 
-function SessionBlock({ session, handleClick, key }) {
+function SessionBlock({ session, handleClick }) {
   const [newNote, setnewNote] = useState("");
   const [renderTextarea, setrenderTextarea] = useState(false);
 
@@ -12,9 +12,9 @@ function SessionBlock({ session, handleClick, key }) {
     <Fragment>
       <p>{session.timestamp}</p>
       <ul>
-        {session.notes.map((note) => (
+        {session.notes.map((note, i) => (
           // is id right? or is it key
-          <li id={key}>{note}</li>
+          <li key={i}>{note}</li>
         ))}
       </ul>
       <button onClick={toggleTextArea}>+</button>
