@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 
 function SessionBlock({ session, handleClick, key }) {
   const [newNote, setnewNote] = useState("");
@@ -9,7 +9,7 @@ function SessionBlock({ session, handleClick, key }) {
   }
 
   return (
-    <fragment>
+    <Fragment>
       <p>{session.timestamp}</p>
       <ul>
         {session.notes.map((note) => (
@@ -19,14 +19,16 @@ function SessionBlock({ session, handleClick, key }) {
       </ul>
       <button onClick={toggleTextArea}>+</button>
       {renderTextarea && (
-        <fragment>
+        <Fragment>
           <textarea
             onChange={(event) => setnewNote(event.target.value)}
           ></textarea>
-          <button onClick={() => handleClick(newNote, session.id)}>Add Note</button>
-        </fragment>
+          <button onClick={() => handleClick(newNote, session.id)}>
+            Add Note
+          </button>
+        </Fragment>
       )}
-    </fragment>
+    </Fragment>
   );
 }
 
