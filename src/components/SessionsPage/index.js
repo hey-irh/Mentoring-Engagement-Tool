@@ -44,9 +44,7 @@ function SessionsPage() {
   return (
     <div className="SessionsContainer">
       <h1 className="h1">Sessions</h1>
-      <Link to="/createsession">
-        <button>Create Session</button>
-      </Link>
+
       {sessions.map((session) => (
         <SessionBlock
           session={session}

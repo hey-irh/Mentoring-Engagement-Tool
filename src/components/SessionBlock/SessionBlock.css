@@ -1,11 +1,31 @@
 .Session {
   background-color: white;
-  min-width: 50vw;
+  width: 50vw;
   padding: 1rem;
   margin: 1rem;
   border-radius: 10px;
 }
 
+.Session .add-note {
+  color: white;
+}
+
 .Session * {
   color: black;
+}
+
+.Session__header {
+  /* background-color: rgba(182, 182, 182, 0.604); */
+  border-bottom: 2px solid var(--blue);
+  margin: 0;
+}
+
+.context-info {
+  color: grey;
+  font-size: 0.8rem;
+}
+
+.new-note-container .add-note {
+  margin-top: 1rem;
+  width: fit-content;
 }

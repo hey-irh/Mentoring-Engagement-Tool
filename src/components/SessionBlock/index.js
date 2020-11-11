@@ -38,20 +38,30 @@ function SessionBlock({ session, handleClick }) {
 
   return (
     <div className="Session">
+      <header>
+        <h2 className="Session__header">Details for this session</h2>
+      </header>
+      <p className="context-info"></p>
       <p>{`Date: ` + session.timestamp.substring(0, 10)}</p>
       <p> {`Time: ` + session.timestamp.substring(11, 16)}</p>
+      <p className="context-info">Notes for this session:</p>
       <ul>
         {session.notes.map((note, i) => (
           <li key={i}>{note}</li>
         ))}
       </ul>
-      <button onClick={toggleTextArea}>Add Note</button>
+      {!renderTextarea && (
+        <button className="add-note" onClick={toggleTextArea}>
+          Add Note
+        </button>
+      )}
       {renderTextarea && (
-        <Fragment>
+        <div className="new-note-container flex-col">
           <textarea
             onChange={(event) => setnewNote(event.target.value)}
           ></textarea>
           <button
+            className="add-note"
             onClick={() => {
               setSendRequest(true);
               handleClick(session.id, newNote);
@@ -60,7 +70,7 @@ function SessionBlock({ session, handleClick }) {
           >
             Add Note
           </button>
-        </Fragment>
+        </div>
       )}
     </div>
   );
