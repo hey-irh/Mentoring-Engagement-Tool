@@ -18,7 +18,7 @@ function SessionBlock({ session, handleClick }) {
 
     fetch(`http://localhost:5000/sessions/${session.id}`, {
       method: "PATCH",
-      body: JSON.stringify([...session.notes, newNote]),
+      body: JSON.stringify([...session.notes]),
       headers: { "Content-Type": "application/json" },
       signal: abortController.signal,
     })
