@@ -142,8 +142,6 @@ const syllabusWithoutDates = [
 ];
 
 const syllabus = createSyllabusWithDates(
-  new Date(2020, 9, 21),
+  new Date(2020, 8, 21),
   syllabusWithoutDates
 );
-
-console.log({ syllabus });
