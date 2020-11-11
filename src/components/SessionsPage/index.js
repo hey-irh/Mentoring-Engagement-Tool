@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import SessionBlock from "../SessionBlock";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function SessionsPage() {
   const [sessions, setSessions] = useState([]);
@@ -42,16 +43,19 @@ function SessionsPage() {
   return (
     <Fragment>
       <h1>Sessions</h1>
-      {/* <Link to="/CreateSession"> */}
+      <Link to="/createsession">
       <button>Create Session</button>
-      {/* </Link> */}
+      </Link>
       {sessions.map((session) => (
         <SessionBlock
           session={session}
           key={session.id}
           handleClick={handleClick}
         />
-      ))}
+        //SORT FUNCTION ADDED, BUT DOESN'T WORK YET
+      )).sort(function(x, y){
+    return x.timestamp - y.timestamp;
+})}
     </Fragment>
   );
 }

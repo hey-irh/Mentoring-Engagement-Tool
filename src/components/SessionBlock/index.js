@@ -44,7 +44,7 @@ function SessionBlock({ session, handleClick }) {
           <li key={i}>{note}</li>
         ))}
       </ul>
-      <button onClick={toggleTextArea}>+</button>
+      <button onClick={toggleTextArea}>Add Note</button>
       {renderTextarea && (
         <Fragment>
           <textarea
