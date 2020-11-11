@@ -3,8 +3,12 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SessionsPage from "../SessionsPage";
 import CreateSession from "../CreateSession";
+import { useState } from "react";
 
 function App() {
+  const [mentorId, setMentorId] = useState(1);
+  const [menteeId, setMenteeId] = useState(2);
+
   return (
     <Router>
       <div>
