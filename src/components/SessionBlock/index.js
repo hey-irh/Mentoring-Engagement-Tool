@@ -37,7 +37,8 @@ function SessionBlock({ session, handleClick }) {
 
   return (
     <Fragment>
-      <p>{session.timestamp}</p>
+      <p>{`Date: ` + session.timestamp.substring(0, 10)}</p>
+      <p> {`Time: ` + session.timestamp.substring(11, 16)}</p>
       <ul>
         {session.notes.map((note, i) => (
           <li key={i}>{note}</li>
