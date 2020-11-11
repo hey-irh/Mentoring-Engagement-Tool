@@ -1,13 +1,71 @@
+/* Brown box */
+.CreateSessionContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "image inputComponents";
+  padding: 0 5rem;
+}
+
+.CreateSessionContainer .h1 {
+  padding: 0.5rem;
+  color: white;
+  border-bottom: 2px solid var(--blue);
+  font-size: 1.5rem;
+  width: 40%;
+  margin-bottom: 3rem;
+}
+
+/* first yellow box */
+.syllabus {
+  grid-area: image;
+  height: 90vh;
+}
+
+/* second yellow box */
+.CreateSession__input-container {
+  grid-area: inputComponents;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CreateSession__input-container * {
+  color: white;
+}
+
+.CreateSession__inputs {
+  grid-area: inputs;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-submit {
+  margin: 1rem;
+  width: fit-content;
+}
+
+.SuggestionsContainer {
+  background-color: var(--blue);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-top: 1rem;
+  grid-area: suggestions;
+}
+
 .CreateSession {
   display: flex;
   flex-direction: column;
 }
 
-.CreateSession__input-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.CreateSession * {
+  color: white;
+}
+
+.form-label {
+  margin-bottom: 0.5rem;
 }
 
 .form-item {
@@ -15,4 +73,14 @@
   display: flex;
   flex-direction: column;
   max-width: fit-content;
+}
+
+.form-input {
+  padding: 0.5rem;
+  border-radius: 5px;
+  color: black;
+}
+
+.form-input[type="datetime-local"] {
+  padding: 0;
 }
