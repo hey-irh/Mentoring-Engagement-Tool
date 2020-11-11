@@ -7,6 +7,8 @@ export default function CreateSession() {
   const [timestamp, setTimestamp] = useState("");
   const [note, setNote] = useState("");
   const [sendRequest, setSendRequest] = useState(false);
+  const [fetchSuccess, setFetchSuccess] = useState(false);
+
 
   const suggestion = getSyllabusDetailsForTimestamp(timestamp);
 
@@ -31,6 +33,12 @@ export default function CreateSession() {
       signal: abortController.signal,
     })
       .then((response) => response.json())
+
+      .then(()=> {setFetchSuccess(true)})
+
+      .then(()=> {setTimeout(function(){ setFetchSuccess(false) }, 1500);
+    })
+
       .then((data) => {
         setTimestamp("");
         setNote("");
@@ -86,6 +94,13 @@ export default function CreateSession() {
           >
             Submit
           </button>
+
+          {fetchSuccess && ( 
+          
+            <p>Session Created Successfully!</p> 
+          )
+          }
+          
           <Suggestions suggestion={suggestion} />
         </div>
       </div>

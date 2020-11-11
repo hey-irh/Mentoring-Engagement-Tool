@@ -4,13 +4,14 @@
   grid-template-columns: 1fr 1fr;
   grid-template-areas: "image inputComponents";
   padding: 0 5rem;
+  
 }
 
 .CreateSessionContainer .h1 {
   padding: 0.5rem;
   color: white;
   border-bottom: 2px solid var(--blue);
-  font-size: 1.5rem;
+  font-size: 2rem;
   width: 40%;
   margin-bottom: 3rem;
 }
@@ -19,6 +20,8 @@
 .syllabus {
   grid-area: image;
   height: 90vh;
+  margin-left: -80px;
+  
 }
 
 /* second yellow box */
@@ -28,6 +31,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-left: -250px;
 }
 
 .CreateSession__input-container * {
