@@ -1,4 +1,5 @@
 import React, { useState, Fragment, useEffect } from "react";
+import "./SessionBlock.css";
 
 function SessionBlock({ session, handleClick }) {
   const [newNote, setnewNote] = useState("");
@@ -36,7 +37,7 @@ function SessionBlock({ session, handleClick }) {
   }, [sendRequest]);
 
   return (
-    <Fragment>
+    <div className="Session">
       <p>{`Date: ` + session.timestamp.substring(0, 10)}</p>
       <p> {`Time: ` + session.timestamp.substring(11, 16)}</p>
       <ul>
@@ -61,7 +62,7 @@ function SessionBlock({ session, handleClick }) {
           </button>
         </Fragment>
       )}
-    </Fragment>
+    </div>
   );
 }
 
