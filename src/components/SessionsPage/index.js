@@ -15,22 +15,29 @@ function SessionsPage() {
     getSessions();
   }, []);
 
-  // HOW DO WE PATCH
-
-  function handleClick(newNote, id) {
-    // WIP need to finish tomorrow 
-    // need to find and set index
-    let toAdd = [...sessions[index].notes, newNote]
-   
-    const fetchRequest = useCallback(() => {
-
-      await fetch(`http://localhost:5000/sessions/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({id, toAdd}),
-      }
-
-  , []);
+  function handleClick(id, newNote) {
+    const indexToUpdate = sessions.findIndex((session) => id === session.id);
+    const sessionToUpdate = sessions[indexToUpdate];
+    const updatedSession = {
+      ...sessionToUpdate,
+      notes: [...sessionToUpdate.notes, newNote],
+    };
+    setSessions([
+      ...sessions.slice(0, indexToUpdate).map((session) => {
+        return {
+          ...session,
+          notes: [...session.notes],
+        };
+      }),
+      updatedSession,
+      ...sessions.slice(indexToUpdate + 1).map((session) => {
+        return {
+          ...session,
+          notes: [...session.notes],
+        };
+      }),
+    ]);
+  }
 
   return (
     <Fragment>
