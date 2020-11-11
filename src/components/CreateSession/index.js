@@ -45,33 +45,50 @@ export default function CreateSession() {
   }, [sendRequest]);
 
   return (
-    <div className="CreateSession">
-      <Suggestions suggestion={suggestion} />
-      <div className="CreateSession__input-container">
-        <label className="form-item">
-          <span className="form-label">Book a session</span>
-          <input
-            type="datetime-local"
-            value={timestamp.slice(0, -1)}
-            onChange={(e) =>
-              setTimestamp(new Date(e.target.value).toISOString())
-            }
-            readOnly={sendRequest}
-          />
-        </label>
-        <label className="form-item">
-          <span className="form-label">Add an initial note</span>
-          <textarea
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-            placeholder="Enter a note here..."
-            readOnly={sendRequest}
-          ></textarea>
-        </label>
+    <div className="background">
+      <div className="CreateSessionContainer">
+        <img
+          className="syllabus"
+          src="/static/images/syllabus.png"
+          alt="syllabus"
+        />
+        <div className="CreateSession__input-container">
+          <h1 className="h1">New session</h1>
+          <div className="CreateSession__inputs flex-col">
+            <label className="form-item">
+              <span className="form-label">Book a session</span>
+              <input
+                className="form-input"
+                type="datetime-local"
+                value={timestamp.slice(0, -1)}
+                onChange={(e) =>
+                  setTimestamp(new Date(e.target.value).toISOString())
+                }
+                readOnly={sendRequest}
+              />
+            </label>
+            <label className="form-item">
+              <span className="form-label">Add an initial note</span>
+              <textarea
+                className="form-input"
+                value={note}
+                onChange={(e) => setNote(e.target.value)}
+                placeholder="Enter a note here..."
+                readOnly={sendRequest}
+              ></textarea>
+            </label>
+          </div>
+
+          <button
+            className="form-submit"
+            disabled={sendRequest}
+            onClick={() => setSendRequest(true)}
+          >
+            Submit
+          </button>
+          <Suggestions suggestion={suggestion} />
+        </div>
       </div>
-      <button disabled={sendRequest} onClick={() => setSendRequest(true)}>
-        Create new session
-      </button>
     </div>
   );
 }
