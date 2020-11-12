@@ -51,11 +51,11 @@ function Feedback({ userIsMentor, session }) {
   return (
     <div className="feedback">
       <span className="context-info"> Not good </span>
-      <button onClick={() => handleFeedback(1)}>1</button>
-      <button onClick={() => handleFeedback(2)}>2</button>
-      <button onClick={() => handleFeedback(3)}>3</button>
-      <button onClick={() => handleFeedback(4)}>4</button>
-      <button onClick={() => handleFeedback(5)}>5</button>
+      <button className="button" onClick={() => handleFeedback(1)}>1</button>
+      <button className="button" onClick={() => handleFeedback(2)}>2</button>
+      <button className="button" onClick={() => handleFeedback(3)}>3</button>
+      <button className="button" onClick={() => handleFeedback(4)}>4</button>
+      <button className="button" onClick={() => handleFeedback(5)}>5</button>
       <span className="context-info"> Great</span>
       {feedbackSuccess && <p>Thanks for the feedback!</p>}
     </div>
