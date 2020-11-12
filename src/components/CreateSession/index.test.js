@@ -6,8 +6,9 @@ const testProps = {
   menteeId: 2,
 };
 
-test("Create Session should render correctly with props", () => {
-  const { getByTestId } = render(<CreateSession {...testProps} />);
-  const createSession = getByTestId("createSession");
-  expect(createSession).toBeInTheDocument();
+test("Check button onClick changes", () => {
+  const { getByText } = render(<CreateSession {...testProps} />);
+  const button = getByText("Submit");
+  fireEvent.click(button)
+  expect(createSession).toHaveBeenCalled();
 });

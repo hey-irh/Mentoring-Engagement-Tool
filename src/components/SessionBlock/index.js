@@ -1,6 +1,8 @@
 import React, { useState, Fragment, useEffect } from "react";
 import "./SessionBlock.css";
 import Feedback from "../Feedback";
+import Suggestions from "../Suggestions";
+import {getSyllabusDetailsForTimestamp} from "../CreateSession/syllabus";
 
 function SessionBlock({
   session,
@@ -13,6 +15,8 @@ function SessionBlock({
 
   const [renderTextarea, setrenderTextarea] = useState(false);
   const [sendNotesRequest, setSendNotesRequest] = useState(false);
+  const [suggestionArea, setSuggestionArea] = useState(false);
+  const suggestion =  getSyllabusDetailsForTimestamp(session.timestamp);
 
   function toggleTextArea() {
     setrenderTextarea(true);
@@ -59,9 +63,15 @@ function SessionBlock({
         ))}
       </ul>
       {!renderTextarea && (
-        <button className="add-note" onClick={toggleTextArea}>
+        <button className="button" onClick={toggleTextArea}>
           Add Note
         </button>
+      )}
+      { suggestion && <button className="button" onClick={() => {setSuggestionArea(!suggestionArea)}}>
+          Suggestions
+        </button>}
+      {suggestionArea && (
+        <Suggestions suggestion={suggestion} />
       )}
       {renderTextarea && (
         <div className="new-note-container flex-col">
@@ -69,7 +79,7 @@ function SessionBlock({
             onChange={(event) => setnewNote(event.target.value)}
           ></textarea>
           <button
-            className="add-note"
+            className="button"
             onClick={() => {
               setSendNotesRequest(true);
               handleClick(session.id, newNote);
