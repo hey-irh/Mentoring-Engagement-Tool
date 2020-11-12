@@ -80,7 +80,10 @@ function SessionBlock({
           </button>
         </div>
       )}
-      <Feedback userIsMentor={userIsMentor} session={session} />
+      <div>
+        <p className="context-info">Feedback for this session:</p>
+        <Feedback userIsMentor={userIsMentor} session={session} />
+      </div>
     </div>
   );
 }
