@@ -1,8 +1,46 @@
 .ContactContainer {
+  padding: 0.5rem;
   background-color: black;
+  display: flex;
+  flex-direction: column;
 }
 
 .ContactItem {
-  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0.25rem;
+  border-radius: 10px;
+  background-color: white;
   padding: 0.5rem;
+}
+
+a.ContactItem {
+  color: inherit;
+  text-decoration: none;
+}
+
+.ContactItem:hover .ContactItem-icon {
+  filter: none;
+}
+
+.ContactItem:hover {
+  background-color: var(--green);
+}
+
+.ContactItem-field {
+  padding: 0.5rem;
+}
+
+.ContactItem-value {
+  padding: 0.5rem;
+}
+
+.ContactItem-icon {
+  height: 2rem;
+  margin: 0rem;
+  filter: grayscale();
+}
+.ContactContainer .h1 {
+  color: white;
 }
