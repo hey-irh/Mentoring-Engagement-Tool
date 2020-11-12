@@ -1,5 +1,6 @@
 import React, { useState, Fragment, useEffect } from "react";
 import "./SessionBlock.css";
+import Feedback from "../Feedback";
 
 function SessionBlock({
   session,
@@ -9,15 +10,16 @@ function SessionBlock({
   userIsMentor,
 }) {
   const [newNote, setnewNote] = useState("");
+
   const [renderTextarea, setrenderTextarea] = useState(false);
-  const [sendRequest, setSendRequest] = useState(false);
+  const [sendNotesRequest, setSendNotesRequest] = useState(false);
 
   function toggleTextArea() {
     setrenderTextarea(true);
   }
 
   useEffect(() => {
-    if (!sendRequest) {
+    if (!sendNotesRequest) {
       return;
     }
 
@@ -25,22 +27,22 @@ function SessionBlock({
 
     fetch(`http://localhost:5000/sessions/${session.id}`, {
       method: "PATCH",
-      body: JSON.stringify([...session.notes]),
+      body: JSON.stringify({ notes: [...session.notes] }),
       headers: { "Content-Type": "application/json" },
       signal: abortController.signal,
     })
       .then((response) => response.json())
       .then((data) => {
         setnewNote("");
-        setSendRequest(false);
+        setSendNotesRequest(false);
       })
       .catch((e) => {
         console.error(e);
-        setSendRequest(false);
+        setSendNotesRequest(false);
       });
 
     return () => abortController.abort();
-  }, [sendRequest]);
+  }, [sendNotesRequest]);
 
   return (
     <div className="Session">
@@ -69,7 +71,7 @@ function SessionBlock({
           <button
             className="add-note"
             onClick={() => {
-              setSendRequest(true);
+              setSendNotesRequest(true);
               handleClick(session.id, newNote);
               setrenderTextarea(false);
             }}
@@ -78,6 +80,7 @@ function SessionBlock({
           </button>
         </div>
       )}
+      <Feedback userIsMentor={userIsMentor} session={session} />
     </div>
   );
 }
