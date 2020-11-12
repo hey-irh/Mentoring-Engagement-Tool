@@ -20,6 +20,7 @@ code {
 button {
   background-color: var(--green);
   color: white;
+  cursor: pointer;
 }
 
 button:hover {
