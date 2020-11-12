@@ -1,7 +1,13 @@
 import React, { useState, Fragment, useEffect } from "react";
 import "./SessionBlock.css";
 
-function SessionBlock({ session, handleClick }) {
+function SessionBlock({
+  session,
+  handleClick,
+  mentorId,
+  menteeId,
+  userIsMentor,
+}) {
   const [newNote, setnewNote] = useState("");
   const [renderTextarea, setrenderTextarea] = useState(false);
   const [sendRequest, setSendRequest] = useState(false);
