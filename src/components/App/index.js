@@ -22,17 +22,17 @@ function App() {
               src="/static/images/SoC_logo.png"
             ></img>
           </Link>
+          <Link to="/">
+            <button className="createSessionLink">Home</button>
+          </Link>
+          <Link to="/createsession">
+            <button className="createSessionLink">Create Session</button>
+          </Link>
           <Link to="/faqs">
             <button className="createSessionLink">FAQs</button>
           </Link>
           <Link to="/contact">
             <button className="createSessionLink">Contact us</button>
-          </Link>
-          <Link to="/createsession">
-            <button className="createSessionLink">Create Session</button>
-          </Link>
-          <Link to="/">
-            <button className="createSessionLink">Home</button>
           </Link>
         </nav>
         <Switch>
