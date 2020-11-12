@@ -41,20 +41,40 @@ function SessionsPage({ mentorId, menteeId, userIsMentor }) {
     ]);
   }
 
+  const now = new Date().toISOString();
+
+  const groupedSessions = sessions.reduce(
+    (obj, session) => {
+      if (session.timestamp < now) {
+        obj.Past.push(session);
+      } else {
+        obj.Future.push(session);
+      }
+      return obj;
+    },
+    { Future: [], Past: [] }
+  );
+
   return (
     <div className="SessionsContainer">
       <h1 className="h1">Sessions</h1>
-
-      {sessions.map((session) => (
-        <SessionBlock
-          userIsMentor={userIsMentor}
-          menteeId={menteeId}
-          mentorId={mentorId}
-          session={session}
-          key={session.id}
-          handleClick={handleClick}
-        />
-      ))}
+      {Object.entries(groupedSessions).map(([section, sessions]) => {
+        return (
+          <div className="SessionGroup" key={section}>
+            <p className="SessionGroup__header">{section} Sessions</p>
+            {sessions.map((session) => (
+              <SessionBlock
+                userIsMentor={userIsMentor}
+                menteeId={menteeId}
+                mentorId={mentorId}
+                session={session}
+                key={session.id}
+                handleClick={handleClick}
+              />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
