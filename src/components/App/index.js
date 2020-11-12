@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import SessionsPage from "../SessionsPage";
 import CreateSession from "../CreateSession";
 import { useState } from "react";
+import Contact from "../Contact";
 
 function App() {
   const [mentorId, setMentorId] = useState(1);
@@ -24,10 +25,16 @@ function App() {
           <Link to="/createsession">
             <button className="createSessionLink">Create Session</button>
           </Link>
+          <Link to="/contact">
+            <button className="createSessionLink">Contact us</button>
+          </Link>
         </nav>
         <Switch>
           <Route path="/createsession">
             <CreateSession mentorId={mentorId} menteeId={menteeId} />
+          </Route>
+          <Route path="/contact">
+            <Contact />
           </Route>
           <Route path="/">
             <SessionsPage
