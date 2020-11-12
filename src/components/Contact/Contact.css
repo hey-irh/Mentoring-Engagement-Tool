@@ -1,0 +1,8 @@
+.ContactContainer {
+  background-color: black;
+}
+
+.ContactItem {
+  color: white;
+  padding: 0.5rem;
+}
