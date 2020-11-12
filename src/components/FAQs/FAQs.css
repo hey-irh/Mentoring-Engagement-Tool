@@ -1,11 +1,32 @@
 .FAQsContainer {
+  color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: center;
   background-color: black;
+  padding: 20px;
 }
 
 .FAQsContainer .h1 {
+  padding: 0.5rem;
   color: white;
+  border-bottom: 2px solid var(--blue);
+  font-size: 2rem;
+  width: 40%;
+  margin-bottom: 3rem;
+}
+
+h2 {
+  padding: 0.5rem;
+  color: white;
+  border-bottom: 2px solid var(--blue);
+  font-size: 1.2rem;
+  width: 80%;
+  margin-bottom: 3rem;
+}
+
+h3 {
+  border-bottom: 2px solid var(--blue);
+  width: 30%;
 }

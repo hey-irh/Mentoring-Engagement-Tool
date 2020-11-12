@@ -5,6 +5,7 @@ import SessionsPage from "../SessionsPage";
 import CreateSession from "../CreateSession";
 import { useState } from "react";
 import Contact from "../Contact";
+import FAQs from "../FAQs";
 
 function App() {
   const [mentorId, setMentorId] = useState(1);
@@ -28,6 +29,9 @@ function App() {
           <Link to="/contact">
             <button className="createSessionLink">Contact us</button>
           </Link>
+          <Link to="/faqs">
+            <button className="createSessionLink">FAQs</button>
+          </Link>
         </nav>
         <Switch>
           <Route path="/createsession">
@@ -35,6 +39,9 @@ function App() {
           </Route>
           <Route path="/contact">
             <Contact />
+          </Route>
+          <Route path="/faqs">
+            <FAQs />
           </Route>
           <Route path="/">
             <SessionsPage
