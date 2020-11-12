@@ -83,9 +83,15 @@
 }
 
 .form-input {
-  padding: 3rem;
   border-radius: 3px;
   color: black;
+  background-color: white;
+}
+
+textarea {
+  padding: 0.5rem;
+  width: 300px;
+  height: 100px;
 }
 
 .form-input[type="datetime-local"] {
