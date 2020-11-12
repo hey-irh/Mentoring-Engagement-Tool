@@ -3,7 +3,7 @@ import SessionBlock from "../SessionBlock";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./SessionsPage.css";
 
-function SessionsPage() {
+function SessionsPage({ mentorId, menteeId, userIsMentor }) {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
@@ -47,6 +47,9 @@ function SessionsPage() {
 
       {sessions.map((session) => (
         <SessionBlock
+          userIsMentor={userIsMentor}
+          menteeId={menteeId}
+          mentorId={mentorId}
           session={session}
           key={session.id}
           handleClick={handleClick}

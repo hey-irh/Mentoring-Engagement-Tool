@@ -8,6 +8,7 @@ import { useState } from "react";
 function App() {
   const [mentorId, setMentorId] = useState(1);
   const [menteeId, setMenteeId] = useState(2);
+  const [userIsMentor, setUserIsMentor] = useState(true);
 
   return (
     <Router>
@@ -24,10 +25,14 @@ function App() {
         </nav>
         <Switch>
           <Route path="/createsession">
-            <CreateSession />
+            <CreateSession mentorId={mentorId} menteeId={menteeId} />
           </Route>
           <Route path="/">
-            <SessionsPage />
+            <SessionsPage
+              mentorId={mentorId}
+              menteeId={menteeId}
+              userIsMentor={userIsMentor}
+            />
           </Route>
         </Switch>
       </div>
