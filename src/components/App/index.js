@@ -41,7 +41,7 @@ function App() {
             <Contact />
           </Route>
           <Route path="/faqs">
-            <FAQs />
+            <FAQs userIsMentor={userIsMentor} />
           </Route>
           <Route path="/">
             <SessionsPage
