@@ -24,14 +24,16 @@ export default function DeleteButton({ session }) {
 
       //.then(() => new Promise((r) => setTimeout(r, 5000)))
 
-      .then(() => {
-        return new Promise((resolve) => {
-          setTimeout(function () {
-            setdeleteSuccess(false);
-            resolve();
-          }, 2000);
-        });
-      })
+      // use for delay if you put the "session was deleted" message back in!
+
+      // .then(() => {
+      //   return new Promise((resolve) => {
+      //     setTimeout(function () {
+      //       setdeleteSuccess(false);
+      //       resolve();
+      //     }, 500);
+      //   });
+      // })
 
       .then((data) => {
         setSendDeleteRequest(false);
@@ -57,7 +59,11 @@ export default function DeleteButton({ session }) {
       <button className="deleteButton" onClick={handleDelete}>
         🗑️
       </button>
-      {deleteSuccess && <p>Session Deleted!</p>}
+      {/* {deleteSuccess && (
+        <p style={{ position: "absolute", backgroundColor: "white" }}>
+          Session Deleted!
+        </p> */}
+      {/* )} */}
     </div>
   );
 }
