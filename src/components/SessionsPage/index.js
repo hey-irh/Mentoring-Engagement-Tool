@@ -68,6 +68,7 @@ function SessionsPage({ mentorId, menteeId, userIsMentor }) {
                 menteeId={menteeId}
                 mentorId={mentorId}
                 session={session}
+                sessions={sessions}
                 key={session.id}
                 handleClick={handleClick}
               />

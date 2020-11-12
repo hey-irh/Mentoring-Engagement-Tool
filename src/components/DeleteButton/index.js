@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import "./DeleteButton.css";
 
-function DeleteButton({ session }) {
-  const [newFeedback, setNewFeedback] = useState(null);
+export default function DeleteButton({ session }) {
   const [sendDeleteRequest, setSendDeleteRequest] = useState(false);
   const [deleteSuccess, setdeleteSuccess] = useState(false);
-
-  const property = userIsMentor ? "mentorFeedback" : "menteeFeedback";
 
   useEffect(() => {
     if (!sendDeleteRequest) {
@@ -15,9 +13,7 @@ function DeleteButton({ session }) {
     const abortController = new AbortController();
 
     fetch(`http://localhost:5000/sessions/${session.id}`, {
-      method: "PATCH",
-      body: JSON.stringify({ [property]: newFeedback }),
-      headers: { "Content-Type": "application/json" },
+      method: "DELETE",
       signal: abortController.signal,
     })
       .then((response) => response.json())
@@ -26,10 +22,15 @@ function DeleteButton({ session }) {
         setdeleteSuccess(true);
       })
 
+      //.then(() => new Promise((r) => setTimeout(r, 5000)))
+
       .then(() => {
-        setTimeout(function () {
-          setdeleteSuccess(false);
-        }, 2000);
+        return new Promise((resolve) => {
+          setTimeout(function () {
+            setdeleteSuccess(false);
+            resolve();
+          }, 2000);
+        });
       })
 
       .then((data) => {
@@ -38,20 +39,25 @@ function DeleteButton({ session }) {
       .catch((e) => {
         console.error(e);
         setSendDeleteRequest(false);
+      })
+
+      .then(() => {
+        document.location.reload();
       });
 
     return () => abortController.abort();
   }, [sendDeleteRequest]);
 
-  function handleFeedback(num) {
-    setNewFeedback(num);
+  function handleDelete() {
     setSendDeleteRequest(true);
   }
 
   return (
     <div>
-      <button></button>
-      {feedbackSuccess && <p>Session Deleted!</p>}
+      <button className="deleteButton" onClick={handleDelete}>
+        🗑️
+      </button>
+      {deleteSuccess && <p>Session Deleted!</p>}
     </div>
   );
 }

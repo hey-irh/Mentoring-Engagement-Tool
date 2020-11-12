@@ -2,9 +2,11 @@ import React, { useState, Fragment, useEffect } from "react";
 import "./SessionBlock.css";
 import Feedback from "../Feedback";
 import Suggestions from "../Suggestions";
-import {getSyllabusDetailsForTimestamp} from "../CreateSession/syllabus";
+import { getSyllabusDetailsForTimestamp } from "../CreateSession/syllabus";
+import DeleteButton from "../DeleteButton";
 
 function SessionBlock({
+  sessions,
   session,
   handleClick,
   mentorId,
@@ -16,7 +18,7 @@ function SessionBlock({
   const [renderTextarea, setrenderTextarea] = useState(false);
   const [sendNotesRequest, setSendNotesRequest] = useState(false);
   const [suggestionArea, setSuggestionArea] = useState(false);
-  const suggestion =  getSyllabusDetailsForTimestamp(session.timestamp);
+  const suggestion = getSyllabusDetailsForTimestamp(session.timestamp);
 
   function toggleTextArea() {
     setrenderTextarea(true);
@@ -50,8 +52,11 @@ function SessionBlock({
 
   return (
     <div className="Session">
-      <header>
+      <header style={{ display: "flex", flexDirection: "row" }}>
         <h2 className="Session__header">Details for this session</h2>
+        <div className="context-info">
+          <DeleteButton session={session} />
+        </div>
       </header>
       <p className="context-info"></p>
       <p>{`Date: ` + session.timestamp.substring(0, 10)}</p>
@@ -67,12 +72,17 @@ function SessionBlock({
           Add Note
         </button>
       )}
-      { suggestion && <button className="button" onClick={() => {setSuggestionArea(!suggestionArea)}}>
+      {suggestion && (
+        <button
+          className="button"
+          onClick={() => {
+            setSuggestionArea(!suggestionArea);
+          }}
+        >
           Suggestions
-        </button>}
-      {suggestionArea && (
-        <Suggestions suggestion={suggestion} />
+        </button>
       )}
+      {suggestionArea && <Suggestions suggestion={suggestion} />}
       {renderTextarea && (
         <div className="new-note-container flex-col">
           <textarea
