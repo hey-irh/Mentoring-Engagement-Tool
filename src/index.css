@@ -22,6 +22,10 @@ button {
   color: white;
 }
 
+button:hover {
+  background-color: green;
+}
+
 .flex-row {
   display: flex;
   flex-direction: row;
