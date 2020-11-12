@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.nav {
+  background-color: #f2f2f2;
+}
+
+.createSessionLink {
+  float: right;
+  padding: 1rem;
+  margin: 0.5rem;
+  margin-right: 60px;
+  margin-top: 20px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+img {
+  margin-left: 60px;
+}
