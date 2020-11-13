@@ -89,7 +89,7 @@ function SessionBlock({
             onChange={(event) => setnewNote(event.target.value)}
           ></textarea>
           <button
-            className="button"
+            className="add-note button"
             onClick={() => {
               setSendNotesRequest(true);
               handleClick(session.id, newNote);

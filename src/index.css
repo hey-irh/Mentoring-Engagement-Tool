@@ -39,6 +39,11 @@ button:hover {
   flex-direction: column;
 }
 
+.centered {
+  justify-content: center;
+  align-items: center;
+}
+
 .h1 {
   font-size: 1.5rem;
   border-bottom: 2px solid var(--blue);

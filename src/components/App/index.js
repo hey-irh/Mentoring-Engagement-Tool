@@ -6,6 +6,7 @@ import CreateSession from "../CreateSession";
 import { useState } from "react";
 import Contact from "../Contact";
 import FAQs from "../FAQs";
+import Home from "../Home";
 
 function App() {
   const [mentorId, setMentorId] = useState(1);
@@ -20,10 +21,13 @@ function App() {
             <img
               className="createSessionLink"
               src="/static/images/SoC_logo.png"
-            ></img>
+            />
           </Link>
           <Link to="/">
             <button className="createSessionLink">Home</button>
+          </Link>
+          <Link to="/viewsessions">
+            <button className="createSessionLink">View Sessions</button>
           </Link>
           <Link to="/createsession">
             <button className="createSessionLink">Create Session</button>
@@ -36,6 +40,13 @@ function App() {
           </Link>
         </nav>
         <Switch>
+          <Route path="/viewsessions">
+            <SessionsPage
+              mentorId={mentorId}
+              menteeId={menteeId}
+              userIsMentor={userIsMentor}
+            />
+          </Route>
           <Route path="/createsession">
             <CreateSession mentorId={mentorId} menteeId={menteeId} />
           </Route>
@@ -45,12 +56,8 @@ function App() {
           <Route path="/faqs">
             <FAQs userIsMentor={userIsMentor} />
           </Route>
-          <Route path="/">
-            <SessionsPage
-              mentorId={mentorId}
-              menteeId={menteeId}
-              userIsMentor={userIsMentor}
-            />
+          <Route exact path="/">
+            <Home />
           </Route>
         </Switch>
       </div>

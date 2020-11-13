@@ -57,7 +57,7 @@ export default function CreateSession({ mentorId, menteeId, userIsMentor }) {
   }, [sendRequest]);
 
   return (
-    <div data-testid="createSession" className="background">
+    <div data-testid="createSession" className="background flex-col centered">
       <div className="CreateSessionContainer">
         <img
           className="syllabus"

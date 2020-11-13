@@ -81,6 +81,7 @@ const syllabusWithoutDates = [
     topics: ["Authentication"],
     suggestions: [
       "Including credentials (API key/token) when making a request to a server",
+      "Understanding JSON web tokens",
       "Understanding Basic authentication flow",
       "Understanding OAuth and OAuth 2.0 authentication flow",
     ],
