@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./SessionBlock.css";
 import Feedback from "../Feedback";
 import Suggestions from "../Suggestions";

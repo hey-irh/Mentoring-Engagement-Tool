@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./Home.css";
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
         <span>tool!</span>
       </div>
       <div className="animated-background">
-        <img src="/static/images/mentor.png" />
+        <img src="/static/images/mentor.png" alt="mentoring" />
       </div>
       <div className="tips">
         <a href="/viewsessions">

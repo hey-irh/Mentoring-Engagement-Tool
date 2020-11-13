@@ -46,7 +46,13 @@ export default function Contact() {
       <div className="contact-links-container">
         {Object.entries(followUs).map(([field, { href, imgSrc }]) => {
           return (
-            <a href={href} target="_blank" className="ContactItem" key={field}>
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="ContactItem"
+              key={field}
+            >
               <img
                 className="ContactItem-icon"
                 src={"/static/images/" + imgSrc}
@@ -72,6 +78,7 @@ export default function Contact() {
               <img
                 className="ContactItem-icon"
                 src={"/static/images/" + imgSrc}
+                alt="Contact icon"
               />
               <span className="ContactItem-value">{text}</span>
             </div>
