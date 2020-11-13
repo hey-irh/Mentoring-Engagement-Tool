@@ -68,7 +68,7 @@ function SessionBlock({
         ))}
       </ul>
       {!renderTextarea && (
-        <button className="button" onClick={toggleTextArea}>
+        <button className="button add-note" onClick={toggleTextArea}>
           Add Note
         </button>
       )}

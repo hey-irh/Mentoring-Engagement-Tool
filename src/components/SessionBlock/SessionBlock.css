@@ -15,10 +15,13 @@
 }
 
 .Session__header {
-  /* background-color: rgba(182, 182, 182, 0.604); */
   border-bottom: 2px solid var(--blue);
   margin: 0;
   width: 100%;
+}
+
+.Session .add-note {
+  margin-right: 0.6rem;
 }
 
 .context-info {
@@ -33,4 +36,5 @@
 
 .new-note-container textarea {
   width: 100%;
+  margin-top: 1rem;
 }
