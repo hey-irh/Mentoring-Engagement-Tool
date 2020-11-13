@@ -13,7 +13,7 @@
   font-weight: bold;
   font-size: 2.5rem;
   letter-spacing: 5px;
-  animation: fadein 4s linear 0s forwards;
+  animation: fadein 2s linear 0s forwards;
 }
 .Home img {
   height: 40vh;
@@ -23,7 +23,7 @@
   background-color: var(--green);
   border-radius: 100%;
   animation: pulsing-background 2s linear infinite alternate-reverse forwards,
-    fadein 4s linear 0s forwards;
+    fadein 2s linear 0s forwards;
   animation-delay: 0.2s;
   animation-fill-mode: backwards;
 }
