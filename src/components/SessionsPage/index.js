@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import SessionBlock from "../SessionBlock";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./SessionsPage.css";
 
 function SessionsPage({ mentorId, menteeId, userIsMentor }) {

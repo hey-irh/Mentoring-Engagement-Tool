@@ -21,6 +21,7 @@ function App() {
             <img
               className="createSessionLink"
               src="/static/images/SoC_logo.png"
+              alt="home-page-logo"
             />
           </Link>
           <Link to="/">

@@ -56,6 +56,7 @@ export default function Contact() {
               <img
                 className="ContactItem-icon"
                 src={"/static/images/" + imgSrc}
+                alt="Contact icon"
               />
               <span className="ContactItem-value">Find us on {field}</span>
             </a>
