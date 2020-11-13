@@ -3,13 +3,15 @@
   background-color: black;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .ContactItem {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0.25rem;
+  margin: 0.5rem;
   border-radius: 10px;
   background-color: white;
   padding: 0.5rem;
@@ -43,4 +45,8 @@ a.ContactItem {
 }
 .ContactContainer .h1 {
   color: white;
+}
+
+.contact-links-container {
+  max-width: fit-content;
 }

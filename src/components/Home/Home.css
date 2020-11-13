@@ -1,0 +1,68 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  min-height: 84vh;
+}
+
+.Home > * {
+  margin: 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
+  letter-spacing: 5px;
+  animation: fadein 2s linear 0s forwards;
+}
+.Home img {
+  height: 40vh;
+}
+
+.Home .animated-background {
+  background-color: var(--green);
+  border-radius: 100%;
+  animation: pulsing-background 2s linear infinite alternate-reverse forwards,
+    fadein 2s linear 0s forwards;
+  animation-delay: 0.2s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes pulsing-background {
+  from {
+    box-shadow: 0 0 10px var(--blue);
+  }
+  to {
+    box-shadow: 0 0 40px var(--blue);
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    color: inherit;
+  }
+  to {
+    opacity: 1;
+    color: white;
+  }
+}
+
+.Home .green {
+  color: var(--green);
+}
+
+.Home .tips {
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.Home .tips a {
+  padding: 0.5rem;
+}
+
+.Home a {
+  color: inherit;
+  text-decoration: none;
+}

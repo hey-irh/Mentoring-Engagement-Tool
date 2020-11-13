@@ -1,4 +1,4 @@
-import React, { useState, Fragment, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./SessionBlock.css";
 import Feedback from "../Feedback";
 import Suggestions from "../Suggestions";
@@ -68,7 +68,7 @@ function SessionBlock({
         ))}
       </ul>
       {!renderTextarea && (
-        <button className="button" onClick={toggleTextArea}>
+        <button className="button add-note" onClick={toggleTextArea}>
           Add Note
         </button>
       )}
@@ -89,7 +89,7 @@ function SessionBlock({
             onChange={(event) => setnewNote(event.target.value)}
           ></textarea>
           <button
-            className="button"
+            className="add-note button"
             onClick={() => {
               setSendNotesRequest(true);
               handleClick(session.id, newNote);

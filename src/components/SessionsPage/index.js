@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import SessionBlock from "../SessionBlock";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./SessionsPage.css";
 
 function SessionsPage({ mentorId, menteeId, userIsMentor }) {
@@ -60,20 +59,22 @@ function SessionsPage({ mentorId, menteeId, userIsMentor }) {
       <h1 className="h1">Sessions</h1>
       {Object.entries(groupedSessions).map(([section, sessions]) => {
         return (
-          <div className="SessionGroup" key={section}>
-            <p className="SessionGroup__header">{section} Sessions</p>
-            {sessions.map((session) => (
-              <SessionBlock
-                userIsMentor={userIsMentor}
-                menteeId={menteeId}
-                mentorId={mentorId}
-                session={session}
-                sessions={sessions}
-                key={session.id}
-                handleClick={handleClick}
-              />
-            ))}
-          </div>
+          sessions.length > 0 && (
+            <div className="SessionGroup" key={section}>
+              <p className="SessionGroup__header">{section} Sessions</p>
+              {sessions.map((session) => (
+                <SessionBlock
+                  userIsMentor={userIsMentor}
+                  menteeId={menteeId}
+                  mentorId={mentorId}
+                  session={session}
+                  sessions={sessions}
+                  key={session.id}
+                  handleClick={handleClick}
+                />
+              ))}
+            </div>
+          )
         );
       })}
     </div>

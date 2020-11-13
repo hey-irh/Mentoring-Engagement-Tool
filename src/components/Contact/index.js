@@ -3,9 +3,14 @@ import "./Contact.css";
 
 export default function Contact() {
   const aboutUs = {
-    "Company Info":
-      "School of Code Ltd is registered in England, Company No. 09793790",
-    Address: "School of Code, Custard Factory, Gibb Street, Birmingham, B9 4AA",
+    Address: {
+      imgSrc: "contact_address.png",
+      text: "School of Code, Custard Factory, Gibb Street, Birmingham, B9 4AA",
+    },
+    Company: {
+      imgSrc: "contact_records.png",
+      text: "School of Code Ltd is registered in England, Company No. 09793790",
+    },
   };
 
   const followUs = {
@@ -38,25 +43,49 @@ export default function Contact() {
   return (
     <div className="ContactContainer">
       <h1 className="h1">Contact us</h1>
-      {Object.entries(followUs).map(([field, { href, imgSrc }]) => {
-        return (
-          <a href={href} className="ContactItem" key={field}>
-            <img
-              className="ContactItem-icon"
-              src={"/static/images/" + imgSrc}
-            />
-            <span className="ContactItem-value">Find us on {field}</span>
-          </a>
-        );
-      })}
-      {Object.entries(aboutUs).map(([field, value]) => {
-        return (
-          <div className="ContactItem" key={field}>
-            <span className="ContactItem-field">{field}:</span>
-            <span className="ContactItem-value">{value}</span>
-          </div>
-        );
-      })}
+      <div className="contact-links-container">
+        {Object.entries(followUs).map(([field, { href, imgSrc }]) => {
+          return (
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="ContactItem"
+              key={field}
+            >
+              <img
+                className="ContactItem-icon"
+                src={"/static/images/" + imgSrc}
+                alt="Contact icon"
+              />
+              <span className="ContactItem-value">Find us on {field}</span>
+            </a>
+          );
+        })}
+
+        {/* <div className="ContactItem">
+          <img
+            className="ContactItem-icon"
+            src="/static/images/contact_address.png"
+          />
+          <span className="ContactItem-value">
+            School of Code, Custard Factory, Gibb Street, Birmingham, B9 4AA
+          </span>
+        </div> */}
+
+        {Object.entries(aboutUs).map(([field, { imgSrc, text }]) => {
+          return (
+            <div className="ContactItem" key={field}>
+              <img
+                className="ContactItem-icon"
+                src={"/static/images/" + imgSrc}
+                alt="Contact icon"
+              />
+              <span className="ContactItem-value">{text}</span>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

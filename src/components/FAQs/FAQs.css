@@ -13,7 +13,7 @@
   color: white;
   border-bottom: 2px solid var(--blue);
   font-size: 3rem;
-  width: 10%;
+  width: fit-content;
   margin-bottom: 3rem;
 }
 

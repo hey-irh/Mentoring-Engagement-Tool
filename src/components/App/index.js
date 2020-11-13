@@ -6,6 +6,7 @@ import CreateSession from "../CreateSession";
 import { useState } from "react";
 import Contact from "../Contact";
 import FAQs from "../FAQs";
+import Home from "../Home";
 
 function App() {
   const [mentorId, setMentorId] = useState(1);
@@ -18,26 +19,35 @@ function App() {
         <nav className="nav">
           <Link to="/">
             <img
-              width="100px"
-              height="auto"
-              src="https://d33wubrfki0l68.cloudfront.net/e6fddcbea146f91d2f3c160f7d56a9391a4740b0/4e758/static/logo-51c754388b198e5bbb0d08a971ebbfa2.png"
-            ></img>
+              className="createSessionLink"
+              src="/static/images/SoC_logo.png"
+              alt="home-page-logo"
+            />
           </Link>
-
+          <Link to="/">
+            <button className="createSessionLink">Home</button>
+          </Link>
+          <Link to="/viewsessions">
+            <button className="createSessionLink">View Sessions</button>
+          </Link>
+          <Link to="/createsession">
+            <button className="createSessionLink">Create Session</button>
+          </Link>
           <Link to="/faqs">
             <button className="createSessionLink">FAQs</button>
           </Link>
           <Link to="/contact">
             <button className="createSessionLink">Contact us</button>
           </Link>
-          <Link to="/createsession">
-            <button className="createSessionLink">Create Session</button>
-          </Link>
-          <Link to="/">
-            <button className="createSessionLink">Home</button>
-          </Link>
         </nav>
         <Switch>
+          <Route path="/viewsessions">
+            <SessionsPage
+              mentorId={mentorId}
+              menteeId={menteeId}
+              userIsMentor={userIsMentor}
+            />
+          </Route>
           <Route path="/createsession">
             <CreateSession mentorId={mentorId} menteeId={menteeId} />
           </Route>
@@ -47,12 +57,8 @@ function App() {
           <Route path="/faqs">
             <FAQs userIsMentor={userIsMentor} />
           </Route>
-          <Route path="/">
-            <SessionsPage
-              mentorId={mentorId}
-              menteeId={menteeId}
-              userIsMentor={userIsMentor}
-            />
+          <Route exact path="/">
+            <Home />
           </Route>
         </Switch>
       </div>
