@@ -42,7 +42,7 @@ function Feedback({ userIsMentor, session }) {
       });
 
     return () => abortController.abort();
-  }, [sendFeedbackRequest]);
+  }, [sendFeedbackRequest]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleFeedback(num) {
     setNewFeedback(num);

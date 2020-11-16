@@ -49,7 +49,7 @@ function SessionBlock({
       });
 
     return () => abortController.abort();
-  }, [sendNotesRequest]);
+  }, [sendNotesRequest]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="Session">

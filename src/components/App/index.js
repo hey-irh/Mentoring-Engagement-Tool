@@ -12,9 +12,9 @@ export const baseUrl =
   process.env.REACT_APP_BACKEND_URL || "http://localhost:3000";
 
 function App() {
-  const [mentorId, setMentorId] = useState(1);
-  const [menteeId, setMenteeId] = useState(2);
-  const [userIsMentor, setUserIsMentor] = useState(false);
+  const [mentorId, setMentorId] = useState(1); // eslint-disable-line no-unused-vars
+  const [menteeId, setMenteeId] = useState(2); // eslint-disable-line no-unused-vars
+  const [userIsMentor, setUserIsMentor] = useState(false); // eslint-disable-line no-unused-vars
 
   return (
     <Router>
