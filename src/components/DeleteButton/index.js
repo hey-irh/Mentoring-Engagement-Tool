@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./DeleteButton.css";
+import { baseUrl } from "../App";
 
 export default function DeleteButton({ session }) {
   const [sendDeleteRequest, setSendDeleteRequest] = useState(false);
@@ -12,7 +13,7 @@ export default function DeleteButton({ session }) {
 
     const abortController = new AbortController();
 
-    fetch(`http://localhost:5000/sessions/${session.id}`, {
+    fetch(`${baseUrl}/${session.id}`, {
       method: "DELETE",
       signal: abortController.signal,
     })

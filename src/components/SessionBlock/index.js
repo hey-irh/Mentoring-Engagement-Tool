@@ -4,6 +4,7 @@ import Feedback from "../Feedback";
 import Suggestions from "../Suggestions";
 import { getSyllabusDetailsForTimestamp } from "../CreateSession/syllabus";
 import DeleteButton from "../DeleteButton";
+import { baseUrl } from "../App";
 
 function SessionBlock({
   sessions,
@@ -31,7 +32,7 @@ function SessionBlock({
 
     const abortController = new AbortController();
 
-    fetch(`http://localhost:5000/sessions/${session.id}`, {
+    fetch(`${baseUrl}/sessions/${session.id}`, {
       method: "PATCH",
       body: JSON.stringify({ notes: [...session.notes] }),
       headers: { "Content-Type": "application/json" },

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { baseUrl } from "../App";
 
 function Feedback({ userIsMentor, session }) {
   const [newFeedback, setNewFeedback] = useState(null);
@@ -14,7 +15,7 @@ function Feedback({ userIsMentor, session }) {
 
     const abortController = new AbortController();
 
-    fetch(`http://localhost:5000/sessions/${session.id}`, {
+    fetch(`${baseUrl}/sessions/${session.id}`, {
       method: "PATCH",
       body: JSON.stringify({ [property]: newFeedback }),
       headers: { "Content-Type": "application/json" },
@@ -51,11 +52,21 @@ function Feedback({ userIsMentor, session }) {
   return (
     <div className="feedback">
       <span className="context-info"> Not good </span>
-      <button className="button" onClick={() => handleFeedback(1)}>1</button>
-      <button className="button" onClick={() => handleFeedback(2)}>2</button>
-      <button className="button" onClick={() => handleFeedback(3)}>3</button>
-      <button className="button" onClick={() => handleFeedback(4)}>4</button>
-      <button className="button" onClick={() => handleFeedback(5)}>5</button>
+      <button className="button" onClick={() => handleFeedback(1)}>
+        1
+      </button>
+      <button className="button" onClick={() => handleFeedback(2)}>
+        2
+      </button>
+      <button className="button" onClick={() => handleFeedback(3)}>
+        3
+      </button>
+      <button className="button" onClick={() => handleFeedback(4)}>
+        4
+      </button>
+      <button className="button" onClick={() => handleFeedback(5)}>
+        5
+      </button>
       <span className="context-info"> Great</span>
       {feedbackSuccess && <p>Thanks for the feedback!</p>}
     </div>

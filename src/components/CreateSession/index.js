@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./CreateSession.css";
 import { getSyllabusDetailsForTimestamp } from "./syllabus";
 import Suggestions from "../Suggestions";
+import { baseUrl } from "../App";
 
 export default function CreateSession({ mentorId, menteeId, userIsMentor }) {
   const [timestamp, setTimestamp] = useState("");
@@ -18,7 +19,7 @@ export default function CreateSession({ mentorId, menteeId, userIsMentor }) {
 
     const abortController = new AbortController();
 
-    fetch("http://localhost:5000/sessions", {
+    fetch(`${baseUrl}/sessions`, {
       method: "POST",
       body: JSON.stringify({
         timestamp,
