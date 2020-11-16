@@ -8,6 +8,9 @@ import Contact from "../Contact";
 import FAQs from "../FAQs";
 import Home from "../Home";
 
+export const baseUrl =
+  process.env.REACT_APP_BACKEND_URL || "http://localhost:3000";
+
 function App() {
   const [mentorId, setMentorId] = useState(1);
   const [menteeId, setMenteeId] = useState(2);

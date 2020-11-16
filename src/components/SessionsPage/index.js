@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from "react";
 import SessionBlock from "../SessionBlock";
 import "./SessionsPage.css";
+import { baseUrl } from "../App";
 
 function SessionsPage({ mentorId, menteeId, userIsMentor }) {
   const [sessions, setSessions] = useState([]);
 
   useEffect(() => {
     async function getSessions() {
-      const res = await fetch(`http://localhost:5000/sessions`);
+      const res = await fetch(`${baseUrl}/sessions`);
       const { payload } = await res.json();
       console.log(`this is res`, res);
       console.log(`this is payload`, payload);
