@@ -55,7 +55,7 @@ export default function CreateSession({ mentorId, menteeId, userIsMentor }) {
       });
 
     return () => abortController.abort();
-  }, [sendRequest]);
+  }, [sendRequest]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div data-testid="createSession" className="background flex-col centered">

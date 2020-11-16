@@ -4,7 +4,7 @@ import { baseUrl } from "../App";
 
 export default function DeleteButton({ session }) {
   const [sendDeleteRequest, setSendDeleteRequest] = useState(false);
-  const [deleteSuccess, setdeleteSuccess] = useState(false);
+  const [deleteSuccess, setdeleteSuccess] = useState(false); // eslint-disable-line no-unused-vars
 
   useEffect(() => {
     if (!sendDeleteRequest) {
@@ -49,7 +49,7 @@ export default function DeleteButton({ session }) {
       });
 
     return () => abortController.abort();
-  }, [sendDeleteRequest]);
+  }, [sendDeleteRequest]); // eslint-disable-line react-hooks/exhaustive-deps
 
   function handleDelete() {
     setSendDeleteRequest(true);
